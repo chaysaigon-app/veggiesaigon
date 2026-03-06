@@ -27,10 +27,14 @@
         
         /* About Us Section */
         .about-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        .about-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #ddd; }
+        .about-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
         .about-text { padding: 20px; font-size: 1.05em; line-height: 1.6; color: #444; text-align: justify; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Video Section */
+        .video-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-info { padding: 12px; font-weight: bold; font-size: 0.95em; color: #2e7d32; text-align: center; }
 
         /* Menu Section */
         .menu-list { display: flex; flex-direction: column; gap: 20px; }
@@ -42,14 +46,14 @@
         .price { color: #d35400; font-weight: bold; font-size: 1.2em; margin-bottom: 15px; }
         .btn-add { background: #2e7d32; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; width: 100%; }
         
-        /* Location & QR */
-        .contact-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        /* Contact Buttons */
+        .contact-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
         .btn-qr { color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; }
         .btn-qr-zalo { background: #0068ff; }
         .btn-qr-wa { background: #25D366; }
 
         /* Cart Bar */
-        .cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; border-top: 2px solid #2e7d32; z-index: 1000; cursor: pointer; }
+        .cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; border-top: 2px solid #2e7d32; z-index: 1000; }
         .cart-total { color: #d35400; font-weight: bold; font-size: 1.2em; }
         .btn-view-cart { background: #e67e22; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; }
 
@@ -57,7 +61,6 @@
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; }
         .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 10px; font-size: 0.95em; }
     </style>
 </head>
 <body>
@@ -79,26 +82,15 @@
 <div class="container">
     <div class="section-title">🌿 About Us</div>
     <div class="about-card">
-        <img src="https://via.placeholder.com/800x400?text=Veggie+Saigon+Restaurant" alt="About Veggie Saigon" class="about-img" id="about-photo">
-        
+        <img src="https://via.placeholder.com/800x400?text=Veggie+Saigon+Restaurant" alt="About Veggie Saigon" class="about-img">
         <div class="about-text">
             Welcome to <b>Veggie Saigon</b> – where the essence of Vietnamese culinary heritage meets international fusion in a <b>Pure Vegan</b> experience. 🌿 <br><br>
-
             <b>1. Strict Standards for Body & Soul:</b><br>
-            The Veggie Saigon kitchen is strictly <b>100% Pure Vegan</b> (No eggs, no animal ingredients) and <b>Allium-Free</b> (No onions, garlic, leeks, shallots, or chives). Our drinks are crafted with natural plant milks—absolutely <b>no dairy or honey</b>.<br><br>
-
+            The Veggie Saigon kitchen is strictly 100% Pure Vegan and Allium-Free. Our drinks are crafted with natural plant milks—absolutely no dairy or honey.<br><br>
             <b>2. Fresh Ingredients & Exquisite Selection:</b><br>
-            We use only the freshest daily produce. Each dish is a blend of traditional Vietnamese soul and international fusion, offering flavors that are both familiar and sophisticated.<br><br>
-
-            <b>3. Diverse Menu for Every Occasion:</b><br>
-            From iconic <b>Bánh mì, Phở, and Noodle Soups</b> to savory stir-fries and crispy delights. We serve everything from light appetizers to cozy family-style meals.<br><br>
-
-            <b>4. Mindful Eating & Connection:</b><br>
-            We invite you to eat in <b>Awareness</b>. Nourish your inner peace and connect with the love of all living beings through every mindful bite. 🙏
-        </div>
-
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+            We use only the freshest daily produce. Each dish is a blend of traditional Vietnamese soul and international fusion.<br><br>
+            <b>3. Mindful Eating & Connection:</b><br>
+            We invite you to eat in Awareness. Nourish your inner peace and connect with the love of all living beings. 🙏
         </div>
     </div>
 
@@ -114,6 +106,17 @@
         <button class="btn-qr btn-qr-zalo" onclick="window.hienThiQR('zalo')">📱 Zalo QR</button>
         <button class="btn-qr btn-qr-wa" onclick="window.hienThiQR('wa')">💬 WhatsApp QR</button>
     </div>
+
+    <div class="section-title">🕯️ Nourish Your Soul</div>
+    <div id="video-section">
+        <div class="video-item">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/M7lc1UVf-VE" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">Mindful Living & Peace</div>
+        </div>
+        </div>
+
 </div>
 
 <div class="cart-bar" onclick="window.moGioHang()">
@@ -186,7 +189,7 @@
             const locDiv = document.getElementById('location-list');
             lSnap.forEach(doc => {
                 const l = doc.data();
-                const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.dia_chi)}`;
+                const mapLink = `http://maps.google.com/?q=${encodeURIComponent(l.dia_chi)}`;
                 locDiv.innerHTML += `<strong>${l.ten_quan}</strong><br>📍 ${l.dia_chi}<br><a href="${mapLink}" target="_blank" style="display:inline-block; margin-top:8px; color:#2e7d32; text-decoration:none; font-weight:bold; background:#e8f5e9; padding:5px 12px; border-radius:15px; font-size:0.9em;">🌍 View on Google Maps ➔</a>`;
             });
         } catch(e) { console.error(e); }
