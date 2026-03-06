@@ -8,57 +8,58 @@
         body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding-bottom: 100px; color: #333; }
         
         /* Header & Nút chuyển ngôn ngữ */
-        .header { background: #2e7d32; color: white; padding: 35px 20px 20px; text-align: center; position: relative; }
-        .header h1 { margin: 0; font-size: 2em; }
-        .header p { margin: 5px 0 0; font-style: italic; opacity: 0.9; }
-        .lang-switch { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.2); color: white; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; border: 1px solid rgba(255,255,255,0.5); transition: 0.3s; }
-        .lang-switch:hover { background: rgba(255,255,255,0.4); transform: scale(1.05); }
+        .header { background: #2e7d32; color: white; padding: 35px 20px 25px; text-align: center; position: relative; }
+        .header h1 { margin: 0; font-size: 2.2em; letter-spacing: 1px; }
+        .header p { margin: 5px 0 15px; font-style: italic; opacity: 0.9; font-size: 1.1em; }
+        
+        .lang-switch { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.2); color: white; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; border: 1px solid rgba(255,255,255,0.5); }
 
-        /* Huy hiệu chế độ ăn (Dietary Badges) */
-        .dietary-badges { margin-top: 15px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .badge { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.5); padding: 5px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
+        /* Huy hiệu Dietary Badges cao cấp */
+        .dietary-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .badge { display: flex; align-items: center; gap: 6px; padding: 6px 15px; border-radius: 25px; font-weight: bold; font-size: 0.9em; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-transform: uppercase; }
+        
+        .badge-vegan { background: #4caf50; color: white; border: 1px solid #388e3c; }
+        
+        /* Halal: Biểu tượng trắng trên nền vàng */
+        .badge-halal { background: #f1c40f; color: #333; border: 1px solid #d4ac0d; }
+        .halal-icon { color: white; font-size: 1.4em; line-height: 1; font-weight: normal; }
+
+        /* Allium-free: Nền kem nhẹ để nổi bật icon màu thực tế */
+        .badge-allium { background: #ffffff; color: #2e7d32; border: 1px solid #2e7d32; padding: 6px 12px; }
+        .allium-icons { font-size: 1.2em; display: flex; gap: 3px; }
 
         .container { max-width: 500px; margin: auto; padding: 15px; }
         .section-title { color: #2e7d32; border-left: 4px solid #e67e22; padding-left: 10px; margin: 25px 0 15px; font-size: 1.3em; font-weight: bold; }
         
-        /* Khối About Us */
         .about-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        .about-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #ddd; }
+        .about-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
         .about-text { padding: 15px; font-size: 1.05em; line-height: 1.6; color: #444; text-align: justify; }
+        
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Lưới Thực đơn 1 cột */
         .menu-list { display: flex; flex-direction: column; gap: 20px; }
         .menu-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .menu-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: #ddd; }
+        .menu-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
         .card-content { padding: 15px; }
         .name-en { margin: 0 0 5px 0; font-size: 1.2em; color: #111; font-weight: bold; }
         .name-vi { margin: 0 0 10px 0; font-size: 0.9em; color: #666; font-style: italic; }
         .price { color: #d35400; font-weight: bold; font-size: 1.2em; margin-bottom: 15px; }
         
         .btn-add { background: #2e7d32; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; width: 100%; }
-        .btn-add:active { background: #1b5e20; }
-
-        /* Các nút bấm liên hệ (QR Code) */
+        
         .contact-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .btn-qr { color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 0.95em; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
-        .btn-qr:active { transform: scale(0.95); }
+        .btn-qr { color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; }
         .btn-qr-zalo { background: #0068ff; }
         .btn-qr-wa { background: #25D366; }
 
-        /* Giỏ hàng WhatsApp */
-        .cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; border-top: 2px solid #2e7d32; z-index: 1000; cursor: pointer; }
-        .cart-info { font-size: 1em; color: #333; line-height: 1.4; }
+        .cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; border-top: 2px solid #2e7d32; z-index: 1000; }
         .cart-total { color: #d35400; font-weight: bold; font-size: 1.2em; }
-        .btn-view-cart { background: #e67e22; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; font-size: 1em; border: none; cursor: pointer;}
+        .btn-view-cart { background: #e67e22; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; }
 
-        /* Bảng Popup Modal chung */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
-        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; }
         .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 10px; font-size: 0.95em; }
-        .btn-checkout-wa { background: #25D366; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; font-size: 1.1em; font-weight: bold; margin-top: 15px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -69,24 +70,20 @@
     <p>Authentic Vietnamese Vegan Cuisine</p>
     
     <div class="dietary-badges">
-        <span class="badge">🌱 Vegan</span>
-        <span class="badge"><span style="font-size: 1.3em;">حلال</span> Halal</span>
-        <span class="badge">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16px" height="16px" fill="currentColor">
-                <path d="M48 24a24 24 0 0 1 24 24v22.7c31.1 11.4 51.1 36 51.1 63.3v.1c0 29.8-21.6 57.3-51.1 69.1v76.2c0 14.8-12.2 27-27.1 27h-41.9c-14.9 0-27.1-12.2-27.1-27v-76.2c-29.5-11.8-51.1-39.3-51.1-69.1v-.1c0-27.3 20.1-51.8 51.1-63.3V48A24 24 0 0 1 48 24zM413 63L315 25.4c-9.1-3.5-19.1 2-21.5 11L256 128h-32c-35.3 0-64 28.7-64 64 0 32.7 24.3 60 56.1 63.8C204.6 287.4 176 331 176 384c0 30.2 12 59.2 33.4 80.6l103.2 103.2c16.3 16.3 42.8 16.3 59.1 0l103.2-103.2c21.4-21.4 33.4-50.4 33.4-80.6 0-53-28.6-96.6-40.1-128.2 31.8-3.8 56.1-31.1 56.1-63.8 0-35.3-28.7-64-64-64h-32c-9.1-3.5-19.1 2-21.5 11l-37.5 91.6H413c9.1 3.5 19.1-2 21.5-11L448 96c2.4-9 1.1-19.1-1.1-21.5z"></path>
-            </svg>
-            Allium-free
-        </span>
+        <div class="badge badge-vegan">🌱 Vegan</div>
+        <div class="badge badge-halal"><span class="halal-icon">حلال</span> Halal</div>
+        <div class="badge badge-allium">
+            <span class="allium-icons">🧅🌿🧄</span> Allium-free
+        </div>
     </div>
 </div>
 
 <div class="container">
-    
     <div class="section-title">🌿 About Us</div>
     <div class="about-card">
         <img src="https://via.placeholder.com/800x400?text=Veggie+Saigon+Restaurant" alt="About Veggie Saigon" class="about-img">
         <div class="about-text">
-            Welcome to <b>Veggie Saigon</b>! We are dedicated to serving authentic, delicious, and healthy Vietnamese vegan cuisine. From traditional Pho to flavorful stir-fries, every dish is crafted with fresh ingredients and love. Experience the true taste of mindful eating with us.
+            Welcome to <b>Veggie Saigon</b>! We are dedicated to serving authentic, delicious, and healthy Vietnamese vegan cuisine. From traditional Pho to flavorful stir-fries, every dish is crafted with fresh ingredients and love.
         </div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
@@ -99,9 +96,7 @@
     </div>
 
     <div class="section-title">🏠 Location & Contact</div>
-    
     <div id="location-list" style="text-align:center; color:#555; line-height: 1.6; margin-bottom: 20px;"></div>
-
     <div class="contact-btns">
         <button class="btn-qr btn-qr-zalo" onclick="window.hienThiQR('zalo')">📱 Zalo QR</button>
         <button class="btn-qr btn-qr-wa" onclick="window.hienThiQR('wa')">💬 WhatsApp QR</button>
@@ -109,10 +104,7 @@
 </div>
 
 <div class="cart-bar" onclick="window.moGioHang()">
-    <div class="cart-info">
-        🛒 <b><span id="cart-count">0</span> items</b> <br>
-        <span class="cart-total" id="cart-total">0 VND</span>
-    </div>
+    <div class="cart-info">🛒 <b><span id="cart-count">0</span> items</b> <br><span class="cart-total" id="cart-total">0 VND</span></div>
     <button class="btn-view-cart">View Cart 📋</button>
 </div>
 
@@ -122,17 +114,16 @@
         <h2 style="color: #2e7d32; margin-top: 0;">🛒 Your Cart</h2>
         <div id="cart-items-list" style="max-height: 250px; overflow-y: auto; margin-bottom: 15px;"></div>
         <h3 style="color: #d35400; text-align: right; border-top: 2px solid #eee; padding-top: 10px;">Total: <span id="modal-total">0 VND</span></h3>
-        <button class="btn-checkout-wa" onclick="window.guiWhatsApp()">💬 Order via WhatsApp</button>
+        <button style="background: #25D366; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; font-size: 1.1em; font-weight: bold;" onclick="window.guiWhatsApp()">💬 Order via WhatsApp</button>
     </div>
 </div>
 
 <div id="qr-modal" class="modal">
     <div class="modal-content" style="text-align: center;">
         <span class="close-btn" onclick="window.dongModal('qr-modal')">×</span>
-        <h2 id="qr-title" style="color: #2e7d32; margin-top: 0;">Scan to Chat</h2>
-        <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">Scan this QR code with your camera or messaging app.</p>
-        <img id="qr-image" src="" alt="QR Code" style="width: 100%; max-width: 220px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <p id="qr-number" style="font-weight: bold; color: #333; font-size: 1.2em; margin-top: 15px; letter-spacing: 1px;"></p>
+        <h2 id="qr-title" style="margin-top: 0;">Scan to Chat</h2>
+        <img id="qr-image" src="" alt="QR Code" style="width: 100%; max-width: 220px; border-radius: 10px;">
+        <p id="qr-number" style="font-weight: bold; margin-top: 15px; font-size: 1.2em;"></p>
     </div>
 </div>
 
@@ -160,129 +151,62 @@
             const mSnap = await getDocs(collection(db, "Menus"));
             const menuDiv = document.getElementById('menu-list');
             menuDiv.innerHTML = "";
-            
             mSnap.forEach(doc => {
                 const m = doc.data();
                 const tenVi = String(m.ten_tieng_viet || 'Vegan Dish');
                 const tenEn = String(m.ten_tieng_anh || tenVi); 
                 const gia = Number(m.gia_tien) || 0;
-                const hinh = m.hinh_anh ? String(m.hinh_anh) : "https://via.placeholder.com/500x500?text=Veggie+Saigon";
-                const tenAnToan = tenEn.replace(/['"]/g, '');
-
-                menuDiv.innerHTML += `
-                    <div class="menu-card">
-                        <img src="${hinh}" alt="${tenEn}" loading="lazy">
-                        <div class="card-content">
-                            <h3 class="name-en">${tenEn}</h3>
-                            <p class="name-vi">${tenVi}</p>
-                            <p class="price">${gia.toLocaleString()} VND</p>
-                            <button class="btn-add" onclick="window.themVaoGio('${tenAnToan}', ${gia}, event)">➕ Add to cart</button>
-                        </div>
-                    </div>
-                `;
+                const hinh = m.hinh_anh || "https://via.placeholder.com/500x500?text=Veggie+Saigon";
+                menuDiv.innerHTML += `<div class="menu-card"><img src="${hinh}"><div class="card-content"><h3 class="name-en">${tenEn}</h3><p class="name-vi">${tenVi}</p><p class="price">${gia.toLocaleString()} VND</p><button class="btn-add" onclick="window.themVaoGio('${tenEn.replace(/'/g, "")}', ${gia}, event)">➕ Add to cart</button></div></div>`;
             });
-
-            if(menuDiv.innerHTML === "") {
-                menuDiv.innerHTML = "<p style='text-align:center;'>Menu is currently empty.</p>";
-            }
 
             const lSnap = await getDocs(collection(db, "Locations"));
             const locDiv = document.getElementById('location-list');
-            locDiv.innerHTML = "";
             lSnap.forEach(doc => {
                 const l = doc.data();
-                const diaChiThuc = l.dia_chi || 'Veggie Saigon';
-                const mapLink = `http://googleusercontent.com/maps.google.com/6{encodeURIComponent(diaChiThuc)}`;
-                
-                locDiv.innerHTML += `
-                    <strong>${l.ten_quan || 'Veggie Saigon'}</strong><br>
-                    📍 ${diaChiThuc}<br>
-                    <a href="${mapLink}" target="_blank" style="display: inline-block; margin-top: 8px; color: #2e7d32; text-decoration: none; font-weight: bold; background: #e8f5e9; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">🌍 View on Google Maps ➔</a>
-                `;
+                const mapLink = `http://google.com/maps/search/${encodeURIComponent(l.dia_chi)}`;
+                locDiv.innerHTML += `<strong>${l.ten_quan}</strong><br>📍 ${l.dia_chi}<br><a href="${mapLink}" target="_blank" style="color:#2e7d32; text-decoration:none; font-weight:bold;">🌍 View on Google Maps ➔</a>`;
             });
-        } catch(error) {
-            console.error(error);
-            document.getElementById('loading-msg').innerHTML = "Connection error. Please refresh the page!";
-        }
+        } catch(e) { console.error(e); }
     }
 
     window.themVaoGio = (ten, gia, event) => {
-        event.stopPropagation();
         if (window.gioHang[ten]) window.gioHang[ten].soLuong++;
         else window.gioHang[ten] = { gia: gia, soLuong: 1 };
-        
-        let tongSoLuong = 0;
-        tongTienGioHang = 0;
-        for (let mon in window.gioHang) {
-            tongSoLuong += window.gioHang[mon].soLuong;
-            tongTienGioHang += (window.gioHang[mon].soLuong * window.gioHang[mon].gia);
-        }
-
+        let tongSoLuong = 0; tongTienGioHang = 0;
+        for (let m in window.gioHang) { tongSoLuong += window.gioHang[m].soLuong; tongTienGioHang += (window.gioHang[m].soLuong * window.gioHang[m].gia); }
         document.getElementById('cart-count').innerText = tongSoLuong;
         document.getElementById('cart-total').innerText = tongTienGioHang.toLocaleString() + ' VND';
-        
-        const btn = event.target;
-        btn.innerHTML = "✅ Added";
-        btn.style.background = "#e67e22";
-        setTimeout(() => { btn.innerHTML = "➕ Add to cart"; btn.style.background = "#2e7d32"; }, 1000);
     };
 
     window.moGioHang = () => {
         const listDiv = document.getElementById('cart-items-list');
         listDiv.innerHTML = "";
-        if(Object.keys(window.gioHang).length === 0) {
-            listDiv.innerHTML = "<p style='text-align:center; color:#888;'>Your cart is empty.</p>";
-        } else {
-            for (let mon in window.gioHang) {
-                let sl = window.gioHang[mon].soLuong;
-                let gia = window.gioHang[mon].gia;
-                listDiv.innerHTML += `
-                    <div class="cart-item">
-                        <div><b>${mon}</b> <br> <small style="color:#666;">${gia.toLocaleString()} x ${sl}</small></div>
-                        <div style="font-weight:bold; color:#d35400;">${(sl * gia).toLocaleString()} VND</div>
-                    </div>
-                `;
-            }
+        for (let m in window.gioHang) {
+            listDiv.innerHTML += `<div class="cart-item"><div><b>${m}</b><br>${window.gioHang[m].gia.toLocaleString()} x ${window.gioHang[m].soLuong}</div><div>${(window.gioHang[m].soLuong * window.gioHang[m].gia).toLocaleString()} VND</div></div>`;
         }
         document.getElementById('modal-total').innerText = tongTienGioHang.toLocaleString() + ' VND';
         document.getElementById('cart-modal').style.display = "block";
     };
 
     window.dongModal = (id) => document.getElementById(id).style.display = "none";
-
     window.guiWhatsApp = () => {
-        if(Object.keys(window.gioHang).length === 0) {
-            alert("Please add some items to your cart first!");
-            return;
-        }
-
-        let donWA = "🙏 Hello Veggie Saigon, I would like to order:\n\n";
-        for (let mon in window.gioHang) {
-            donWA += "- " + mon + ": " + window.gioHang[mon].soLuong + "\n";
-        }
-        donWA += "\n💰 Total: " + tongTienGioHang.toLocaleString() + " VND\nThank you!";
-
-        const waLink = "https://wa.me/84968107788?text=" + encodeURIComponent(donWA);
-        window.location.href = waLink;
+        let text = "Hello Veggie Saigon, I'd like to order:\n";
+        for (let m in window.gioHang) { text += `- ${m}: ${window.gioHang[m].soLuong}\n`; }
+        text += `\nTotal: ${tongTienGioHang.toLocaleString()} VND`;
+        window.location.href = `https://wa.me/84968107788?text=${encodeURIComponent(text)}`;
     };
 
     window.hienThiQR = (type) => {
-        const title = document.getElementById('qr-title');
         const img = document.getElementById('qr-image');
         const num = document.getElementById('qr-number');
-        
         if(type === 'zalo') {
-            title.innerText = "Connect via Zalo";
-            title.style.color = "#0068ff";
             img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zalo.me/0968107788";
-            num.innerText = "+84 968 107 788";
+            num.innerText = "Zalo: 0968 107 788";
         } else {
-            title.innerText = "Connect via WhatsApp";
-            title.style.color = "#25D366";
             img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84968107788";
-            num.innerText = "+84 968 107 788";
+            num.innerText = "WA: 0968 107 788";
         }
-        
         document.getElementById('qr-modal').style.display = "block";
     };
 
