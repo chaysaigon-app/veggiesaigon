@@ -48,6 +48,12 @@
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; }
         .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        
+        /* New Styles for Cart Items */
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
+        .cart-controls { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+        .btn-qty { background: #eee; border: none; width: 28px; height: 28px; border-radius: 50%; font-weight: bold; cursor: pointer; }
+        .btn-qty:hover { background: #ddd; }
     </style>
 </head>
 <body>
@@ -68,30 +74,11 @@
     <div class="about-card">
         <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/648093393_913420674737698_4812098189760785095_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=dd6889&_nc_ohc=rpPf2GbuMxAQ7kNvwG7tPMm&_nc_oc=Admlx3Kr1ARAwPEmqN3qvaONsU3b_1SQQ2qncZEqnWG3Rea1OsTgFS1yjHEbfWMuQ28&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=-aUhE-ErZMpgdrUFqMzZNw&_nc_ss=8&oh=00_AfxdrwkonKxv8WPEk9vE291t6vSdaF6FG4xPwpNy0gfr8w&oe=69B04367" alt="Veggie Saigon" class="about-img-square">
         <div class="about-text">
-            Welcome to <b>Veggie Saigon</b> – where the essence of Vietnamese culinary heritage meets international fusion in a <b>Pure Vegan</b> experience. 🌿<br><br>
-            <b>1. Strict Standards for Body & Soul:</b><br>
-            We deeply respect your mindful dietary choices. The Veggie Saigon kitchen is committed to:<br>
-            <ul>
-                <li><b>100% Pure Vegan:</b> No eggs, no animal-derived ingredients.</li>
-                <li><b>Allium-Free:</b> Strictly no onions, garlic, leeks, shallots, or chives.</li>
-                <li><b>100% Vegan Drinks:</b> We use only natural plant-based milks; absolutely no dairy milk or honey.</li>
-            </ul>
-            <b>2. Fresh Ingredients & Exquisite Selection:</b><br>
-            We use only the freshest vegetables and fruits, hand-picked daily. Each dish is a skillful blend of traditional Vietnamese soul and international culinary fusion, offering flavors that are both familiar and sophisticated.<br><br>
-            <b>3. Diverse Menu – Perfect for Every Occasion:</b><br>
-            Whether you are dining solo or with family, Veggie Saigon has the perfect choice:<br>
-            <ul>
-                <li>Classic Vietnamese staples: Bánh mì, Phở, Vermicelli, and Noodle Soups.</li>
-                <li>Variety of styles: Crispy fried dishes, savory stir-fries, and elegant soups.</li>
-                <li>Full service: From light appetizers to cozy family-style meals.</li>
-            </ul>
-            <b>4. Mindful Eating & Connection:</b><br>
-            More than just a meal, we offer a space for <b>Mindfulness</b>. We invite our guests to not only enjoy delicious food but also to nourish peace within the soul and connect with the love of all living beings. 🙏
+            Welcome to <b>Veggie Saigon</b> – nơi tinh hoa ẩm thực chay Việt Nam hội tụ.
         </div>
         <div class="video-wrapper-short">
             <iframe src="https://www.youtube.com/embed/TaMBjgJhrNA" allowfullscreen></iframe>
         </div>
-        <div class="video-info" style="background: white;">Discover Veggie Saigon</div>
     </div>
 
     <div class="section-title">🍜 Our Menu</div>
@@ -101,35 +88,14 @@
 
     <div class="section-title">🏠 Location & Contact</div>
     <div class="location-card">
-        <strong style="font-size: 1.1em; color: #2e7d32;">Phở Bụt Vegan - Quán Chay Da Nang</strong><br>
-        <p style="margin: 10px 0; color: #555;">📍 76 Thủ Khoa Huân, An Hải Đông, Sơn Trà, Đà Nẵng</p>
-        <p style="margin: 5px 0; color: #777; font-size: 0.9em;">⏰ Open: 10:00 – 21:00</p>
+        <strong style="font-size: 1.1em; color: #2e7d32;">Phở Bụt Vegan</strong><br>
+        <p>📍 76 Thủ Khoa Huân, Đà Nẵng</p>
         <a href="https://maps.google.com/?q=$05" target="_blank" class="btn-maps">🗺️ Open in Google Maps</a>
     </div>
 
     <div class="contact-btns">
         <button class="btn-qr btn-qr-zalo" onclick="window.hienThiQR('zalo')">📱 Zalo QR</button>
         <button class="btn-qr btn-qr-wa" onclick="window.hienThiQR('wa')">💬 WhatsApp QR</button>
-    </div>
-
-    <div class="section-title">🕯️ Nourish Your Soul</div>
-    <div id="video-section">
-        <div class="video-item">
-            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/6F4cVu5aDkU" allowfullscreen></iframe></div>
-            <div class="video-info">Eightfold Path (Bát Chánh Đạo)</div>
-        </div>
-        <div class="video-item">
-            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/MVwM2lQ6DCg" allowfullscreen></iframe></div>
-            <div class="video-info">Metta Sutta (Kinh Từ Bi)</div>
-        </div>
-        <div class="video-item">
-            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/DMVhQJUreAk" allowfullscreen></iframe></div>
-            <div class="video-info">Decoding Birth and Death (Giải Mã Sinh Tử)</div>
-        </div>
-        <div class="video-item">
-            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/gwMV-DfcMHs" allowfullscreen></iframe></div>
-            <div class="video-info">10 Fetters (10 Sợi Dây Xích Kiết Sử)</div>
-        </div>
     </div>
 </div>
 
@@ -142,7 +108,7 @@
     <div class="modal-content">
         <span class="close-btn" onclick="window.dongModal('cart-modal')">×</span>
         <h2 style="color: #2e7d32; margin-top: 0;">🛒 Your Cart</h2>
-        <div id="cart-items-list" style="max-height: 250px; overflow-y: auto; margin-bottom: 15px;"></div>
+        <div id="cart-items-list" style="max-height: 350px; overflow-y: auto; margin-bottom: 15px;"></div>
         <h3 style="color: #d35400; text-align: right; border-top: 2px solid #eee; padding-top: 10px;">Total: <span id="modal-total">0 VND</span></h3>
         <button style="background: #25D366; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; font-size: 1.1em; font-weight: bold; cursor: pointer;" onclick="window.guiWhatsApp()">💬 Order via WhatsApp</button>
     </div>
@@ -160,25 +126,130 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    
     const firebaseConfig = { apiKey: "AIzaSyA0zujbTZbHe_7gAe_y9QkrcR4qXKC6Abo", authDomain: "phobut-95574.firebaseapp.com", projectId: "phobut-95574", storageBucket: "phobut-95574.firebasestorage.app", messagingSenderId: "588108977874", appId: "1:588108977874:web:91eaa1d51fa3ddfbf6ff0b" };
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    window.gioHang = {}; let tongTienGioHang = 0;
+
+    window.gioHang = {};
+
     async function chayWeb() {
         try {
             const mSnap = await getDocs(collection(db, "Menus"));
-            const menuDiv = document.getElementById('menu-list'); menuDiv.innerHTML = "";
+            const menuDiv = document.getElementById('menu-list'); 
+            menuDiv.innerHTML = "";
             mSnap.forEach(doc => {
-                const m = doc.data(); const tenVi = String(m.ten_tieng_viet || 'Vegan Dish'); const tenEn = String(m.ten_tieng_anh || tenVi); const gia = Number(m.gia_tien) || 0; const hinh = m.hinh_anh || "https://via.placeholder.com/500x500?text=Veggie+Saigon";
-                menuDiv.innerHTML += `<div class="menu-card"><img src="${hinh}"><div class="card-content"><h3 class="name-en">${tenEn}</h3><p class="name-vi">${tenVi}</p><p class="price">${gia.toLocaleString()} VND</p><button class="btn-add" onclick="window.themVaoGio('${tenEn.replace(/'/g, "")}', ${gia}, event)">➕ Add to cart</button></div></div>`;
+                const m = doc.data(); 
+                const tenVi = String(m.ten_tieng_viet || 'Vegan Dish'); 
+                const tenEn = String(m.ten_tieng_anh || tenVi); 
+                const gia = Number(m.gia_tien) || 0; 
+                const hinh = m.hinh_anh || "https://via.placeholder.com/500x500?text=Veggie+Saigon";
+                
+                // Escape single quotes in names to prevent JS errors
+                const escapedName = tenEn.replace(/'/g, "\\'");
+
+                menuDiv.innerHTML += `
+                <div class="menu-card">
+                    <img src="${hinh}">
+                    <div class="card-content">
+                        <h3 class="name-en">${tenEn}</h3>
+                        <p class="name-vi">${tenVi}</p>
+                        <p class="price">${gia.toLocaleString()} VND</p>
+                        <button class="btn-add" onclick="window.thayDoiSoLuong('${escapedName}', ${gia}, 1)">➕ Add to cart</button>
+                    </div>
+                </div>`;
             });
         } catch(e) { console.error(e); }
     }
-    window.themVaoGio = (ten, gia, event) => { if (window.gioHang[ten]) window.gioHang[ten].soLuong++; else window.gioHang[ten] = { gia: gia, soLuong: 1 }; let tongSoLuong = 0; tongTienGioHang = 0; for (let m in window.gioHang) { tongSoLuong += window.gioHang[m].soLuong; tongTienGioHang += (window.gioHang[m].soLuong * window.gioHang[m].gia); } document.getElementById('cart-count').innerText = tongSoLuong; document.getElementById('cart-total').innerText = tongTienGioHang.toLocaleString() + ' VND'; };
-    window.moGioHang = () => { const listDiv = document.getElementById('cart-items-list'); listDiv.innerHTML = ""; for (let m in window.gioHang) { listDiv.innerHTML += `<div class="cart-item"><div><b>${m}</b><br>${window.gioHang[m].gia.toLocaleString()} x ${window.gioHang[m].soLuong}</div><div>${(window.gioHang[m].soLuong * window.gioHang[m].gia).toLocaleString()} VND</div></div>`; } document.getElementById('modal-total').innerText = tongTienGioHang.toLocaleString() + ' VND'; document.getElementById('cart-modal').style.display = "block"; };
+
+    // New unified function for adding/subtracting
+    window.thayDoiSoLuong = (ten, gia, delta) => {
+        if (!window.gioHang[ten]) {
+            if (delta > 0) window.gioHang[ten] = { gia: gia, soLuong: 0 };
+            else return;
+        }
+
+        window.gioHang[ten].soLuong += delta;
+
+        // Remove item if quantity becomes 0 or less
+        if (window.gioHang[ten].soLuong <= 0) {
+            delete window.gioHang[ten];
+        }
+
+        capNhatGiaoDienGioHang();
+        
+        // If modal is open, refresh it
+        if (document.getElementById('cart-modal').style.display === "block") {
+            window.moGioHang();
+        }
+    };
+
+    function capNhatGiaoDienGioHang() {
+        let tongSoLuong = 0;
+        let tongTien = 0;
+        for (let m in window.gioHang) {
+            tongSoLuong += window.gioHang[m].soLuong;
+            tongTien += (window.gioHang[m].soLuong * window.gioHang[m].gia);
+        }
+        document.getElementById('cart-count').innerText = tongSoLuong;
+        document.getElementById('cart-total').innerText = tongTien.toLocaleString() + ' VND';
+        document.getElementById('modal-total').innerText = tongTien.toLocaleString() + ' VND';
+    }
+
+    window.moGioHang = () => {
+        const listDiv = document.getElementById('cart-items-list');
+        listDiv.innerHTML = "";
+        
+        if (Object.keys(window.gioHang).length === 0) {
+            listDiv.innerHTML = "<p style='text-align:center; color:#888;'>Your cart is empty</p>";
+        } else {
+            for (let m in window.gioHang) {
+                const item = window.gioHang[m];
+                const escapedName = m.replace(/'/g, "\\'");
+                listDiv.innerHTML += `
+                <div class="cart-item">
+                    <div>
+                        <b>${m}</b><br>
+                        <span style="color:#d35400">${(item.soLuong * item.gia).toLocaleString()} VND</span>
+                        <div class="cart-controls">
+                            <button class="btn-qty" onclick="window.thayDoiSoLuong('${escapedName}', ${item.gia}, -1)">-</button>
+                            <span><b>${item.soLuong}</b></span>
+                            <button class="btn-qty" onclick="window.thayDoiSoLuong('${escapedName}', ${item.gia}, 1)">+</button>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        }
+        document.getElementById('cart-modal').style.display = "block";
+    };
+
     window.dongModal = (id) => document.getElementById(id).style.display = "none";
-    window.guiWhatsApp = () => { let text = "🙏 Hello, I would like to order:\n\n"; for (let m in window.gioHang) { text += `- ${m}: ${window.gioHang[m].soLuong}\n`; } text += `\n💰 Total: ${tongTienGioHang.toLocaleString()} VND\nThank you!`; window.location.href = `https://wa.me/84968107788?text=${encodeURIComponent(text)}`; };
-    window.hienThiQR = (type) => { const img = document.getElementById('qr-image'); const num = document.getElementById('qr-number'); if(type === 'zalo') { img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zalo.me/0968107788"; num.innerText = "+84 968 107 788 (Zalo)"; } else { img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84968107788"; num.innerText = "+84 968 107 788 (WhatsApp)"; } document.getElementById('qr-modal').style.display = "block"; };
+
+    window.guiWhatsApp = () => {
+        if (Object.keys(window.gioHang).length === 0) return alert("Cart is empty!");
+        let text = "🙏 Hello, I would like to order:\n\n";
+        let tongTien = 0;
+        for (let m in window.gioHang) {
+            text += `- ${m}: ${window.gioHang[m].soLuong}\n`;
+            tongTien += (window.gioHang[m].soLuong * window.gioHang[m].gia);
+        }
+        text += `\n💰 Total: ${tongTien.toLocaleString()} VND\nThank you!`;
+        window.location.href = `https://wa.me/84968107788?text=${encodeURIComponent(text)}`;
+    };
+
+    window.hienThiQR = (type) => {
+        const img = document.getElementById('qr-image');
+        const num = document.getElementById('qr-number');
+        if(type === 'zalo') {
+            img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zalo.me/0968107788";
+            num.innerText = "+84 968 107 788 (Zalo)";
+        } else {
+            img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84968107788";
+            num.innerText = "+84 968 107 788 (WhatsApp)";
+        }
+        document.getElementById('qr-modal').style.display = "block";
+    };
+
     chayWeb();
 </script>
 </body>
