@@ -14,6 +14,10 @@
         .lang-switch { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.2); color: white; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: bold; border: 1px solid rgba(255,255,255,0.5); transition: 0.3s; }
         .lang-switch:hover { background: rgba(255,255,255,0.4); transform: scale(1.05); }
 
+        /* Huy hiệu chế độ ăn (Dietary Badges) */
+        .dietary-badges { margin-top: 15px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .badge { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.5); padding: 5px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase; }
+
         .container { max-width: 500px; margin: auto; padding: 15px; }
         .section-title { color: #2e7d32; border-left: 4px solid #e67e22; padding-left: 10px; margin: 25px 0 15px; font-size: 1.3em; font-weight: bold; }
         
@@ -36,12 +40,20 @@
         .btn-add { background: #2e7d32; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; width: 100%; }
         .btn-add:active { background: #1b5e20; }
 
+        /* Các nút bấm liên hệ (QR Code) */
+        .contact-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .btn-qr { color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 0.95em; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .btn-qr:active { transform: scale(0.95); }
+        .btn-qr-zalo { background: #0068ff; }
+        .btn-qr-wa { background: #25D366; }
+
         /* Giỏ hàng WhatsApp */
         .cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; border-top: 2px solid #2e7d32; z-index: 1000; cursor: pointer; }
         .cart-info { font-size: 1em; color: #333; line-height: 1.4; }
         .cart-total { color: #d35400; font-weight: bold; font-size: 1.2em; }
         .btn-view-cart { background: #e67e22; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; font-size: 1em; border: none; cursor: pointer;}
 
+        /* Bảng Popup Modal chung */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
         .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
@@ -55,6 +67,12 @@
     <a href="https://phobut.com" class="lang-switch">🇻🇳 Tiếng Việt</a>
     <h1>🌱 Veggie Saigon</h1>
     <p>Authentic Vietnamese Vegan Cuisine</p>
+    
+    <div class="dietary-badges">
+        <span class="badge">🌱 Vegan</span>
+        <span class="badge">🌙 Halal</span>
+        <span class="badge">🌿 Allium-free</span>
+    </div>
 </div>
 
 <div class="container">
@@ -75,8 +93,14 @@
         <p id="loading-msg" style="text-align:center; color:#888;">Loading our delicious menu...</p>
     </div>
 
-    <div class="section-title">🏠 Location</div>
-    <div id="location-list" style="text-align:center; color:#555; line-height: 1.5; margin-bottom: 20px;"></div>
+    <div class="section-title">🏠 Location & Contact</div>
+    
+    <div id="location-list" style="text-align:center; color:#555; line-height: 1.6; margin-bottom: 20px;"></div>
+
+    <div class="contact-btns">
+        <button class="btn-qr btn-qr-zalo" onclick="window.hienThiQR('zalo')">📱 Zalo QR</button>
+        <button class="btn-qr btn-qr-wa" onclick="window.hienThiQR('wa')">💬 WhatsApp QR</button>
+    </div>
 </div>
 
 <div class="cart-bar" onclick="window.moGioHang()">
@@ -89,7 +113,7 @@
 
 <div id="cart-modal" class="modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="window.dongGioHang()">&times;</span>
+        <span class="close-btn" onclick="window.dongModal('cart-modal')">×</span>
         <h2 style="color: #2e7d32; margin-top: 0;">🛒 Your Cart</h2>
         <div id="cart-items-list" style="max-height: 250px; overflow-y: auto; margin-bottom: 15px;"></div>
         <h3 style="color: #d35400; text-align: right; border-top: 2px solid #eee; padding-top: 10px;">Total: <span id="modal-total">0 VND</span></h3>
@@ -97,11 +121,20 @@
     </div>
 </div>
 
+<div id="qr-modal" class="modal">
+    <div class="modal-content" style="text-align: center;">
+        <span class="close-btn" onclick="window.dongModal('qr-modal')">×</span>
+        <h2 id="qr-title" style="color: #2e7d32; margin-top: 0;">Scan to Chat</h2>
+        <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">Scan this QR code with your camera or messaging app.</p>
+        <img id="qr-image" src="" alt="QR Code" style="width: 100%; max-width: 220px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <p id="qr-number" style="font-weight: bold; color: #333; font-size: 1.2em; margin-top: 15px; letter-spacing: 1px;"></p>
+    </div>
+</div>
+
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // Cấu hình CHUẨN kết nối về chung kho Bếp Bụt
     const firebaseConfig = {
       apiKey: "AIzaSyA0zujbTZbHe_7gAe_y9QkrcR4qXKC6Abo",
       authDomain: "phobut-95574.firebaseapp.com",
@@ -126,7 +159,6 @@
             mSnap.forEach(doc => {
                 const m = doc.data();
                 const tenVi = String(m.ten_tieng_viet || 'Vegan Dish');
-                // Tên tiếng Anh làm chính, nếu Firebase trống tiếng Anh thì dùng tiếng Việt thay thế
                 const tenEn = String(m.ten_tieng_anh || tenVi); 
                 const gia = Number(m.gia_tien) || 0;
                 const hinh = m.hinh_anh ? String(m.hinh_anh) : "https://via.placeholder.com/500x500?text=Veggie+Saigon";
@@ -149,12 +181,20 @@
                 menuDiv.innerHTML = "<p style='text-align:center;'>Menu is currently empty.</p>";
             }
 
+            // Tải Địa chỉ và chèn tự động Link Google Maps
             const lSnap = await getDocs(collection(db, "Locations"));
             const locDiv = document.getElementById('location-list');
             locDiv.innerHTML = "";
             lSnap.forEach(doc => {
                 const l = doc.data();
-                locDiv.innerHTML += `<strong>${l.ten_quan || 'Veggie Saigon'}</strong><br>📍 ${l.dia_chi || ''}`;
+                const diaChiThuc = l.dia_chi || 'Veggie Saigon';
+                const mapLink = `https://maps.google.com/?q=$${encodeURIComponent(diaChiThuc)}`;
+                
+                locDiv.innerHTML += `
+                    <strong>${l.ten_quan || 'Veggie Saigon'}</strong><br>
+                    📍 ${diaChiThuc}<br>
+                    <a href="${mapLink}" target="_blank" style="display: inline-block; margin-top: 8px; color: #2e7d32; text-decoration: none; font-weight: bold; background: #e8f5e9; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">🌍 View on Google Maps ➔</a>
+                `;
             });
         } catch(error) {
             console.error(error);
@@ -162,6 +202,7 @@
         }
     }
 
+    // Logic Giỏ Hàng
     window.themVaoGio = (ten, gia, event) => {
         event.stopPropagation();
         if (window.gioHang[ten]) window.gioHang[ten].soLuong++;
@@ -204,7 +245,7 @@
         document.getElementById('cart-modal').style.display = "block";
     };
 
-    window.dongGioHang = () => document.getElementById('cart-modal').style.display = "none";
+    window.dongModal = (id) => document.getElementById(id).style.display = "none";
 
     window.guiWhatsApp = () => {
         if(Object.keys(window.gioHang).length === 0) {
@@ -218,9 +259,30 @@
         }
         donWA += "\n💰 Total: " + tongTienGioHang.toLocaleString() + " VND\nThank you!";
 
-        // Định dạng mã vùng +84 cho WhatsApp
-        const waLink = "https://wa.me/84909108890?text=" + encodeURIComponent(donWA);
+        // Chốt đơn chuyển thẳng qua số WhatsApp 0968107788
+        const waLink = "https://wa.me/84968107788?text=" + encodeURIComponent(donWA);
         window.location.href = waLink;
+    };
+
+    // Logic tạo và hiển thị Popup QR Code
+    window.hienThiQR = (type) => {
+        const title = document.getElementById('qr-title');
+        const img = document.getElementById('qr-image');
+        const num = document.getElementById('qr-number');
+        
+        if(type === 'zalo') {
+            title.innerText = "Connect via Zalo";
+            title.style.color = "#0068ff";
+            img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zalo.me/0968107788";
+            num.innerText = "+84 968 107 788";
+        } else {
+            title.innerText = "Connect via WhatsApp";
+            title.style.color = "#25D366";
+            img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84968107788";
+            num.innerText = "+84 968 107 788";
+        }
+        
+        document.getElementById('qr-modal').style.display = "block";
     };
 
     chayWeb();
