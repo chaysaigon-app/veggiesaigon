@@ -17,27 +17,17 @@
         .halal-icon { color: white; font-size: 1.4em; line-height: 1; }
         .badge-allium { background: #ffffff; color: #2e7d32; border: 1px solid #2e7d32; }
         .allium-icons { font-size: 1.2em; display: flex; gap: 3px; }
-        
         .container { max-width: 500px; margin: auto; padding: 15px; }
         .section-title { color: #2e7d32; border-left: 4px solid #e67e22; padding-left: 10px; margin: 25px 0 15px; font-size: 1.3em; font-weight: bold; }
-        
         .about-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        
-        /* CẬP NHẬT: Ảnh About Us dạng Vuông */
         .about-img-square { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
-        
         .about-text { padding: 20px; font-size: 1.05em; line-height: 1.6; color: #444; text-align: justify; }
-        
-        /* Video Shorts giới thiệu (Dạng đứng) */
         .video-wrapper-short { position: relative; width: 100%; max-width: 315px; margin: 0 auto 15px; aspect-ratio: 9/16; background: #000; border-radius: 12px; overflow: hidden; }
         .video-wrapper-short iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        
-        /* Video ngang học lối sống tỉnh thức */
         .video-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
         .video-wrapper-landscape { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-wrapper-landscape iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .video-info { padding: 12px; font-weight: bold; font-size: 0.95em; color: #2e7d32; text-align: center; background: white; }
-
         .menu-list { display: flex; flex-direction: column; gap: 20px; }
         .menu-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .menu-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
@@ -46,16 +36,13 @@
         .name-vi { margin: 0 0 10px 0; font-size: 0.9em; color: #666; font-style: italic; }
         .price { color: #d35400; font-weight: bold; font-size: 1.2em; margin-bottom: 15px; }
         .btn-add { background: #2e7d32; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; width: 100%; }
-        
         .contact-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
         .btn-qr { color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; }
         .btn-qr-zalo { background: #0068ff; }
         .btn-qr-wa { background: #25D366; }
-        
         .cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; border-top: 2px solid #2e7d32; z-index: 1000; cursor: pointer; }
         .cart-total { color: #d35400; font-weight: bold; font-size: 1.2em; }
         .btn-view-cart { background: #e67e22; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; }
-        
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; }
         .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
@@ -78,7 +65,6 @@
     <div class="section-title">🌿 About Us</div>
     <div class="about-card">
         <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/648093393_913420674737698_4812098189760785095_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=dd6889&_nc_ohc=rpPf2GbuMxAQ7kNvwG7tPMm&_nc_oc=Admlx3Kr1ARAwPEmqN3qvaONsU3b_1SQQ2qncZEqnWG3Rea1OsTgFS1yjHEbfWMuQ28&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=-aUhE-ErZMpgdrUFqMzZNw&_nc_ss=8&oh=00_AfxdrwkonKxv8WPEk9vE291t6vSdaF6FG4xPwpNy0gfr8w&oe=69B04367" alt="Veggie Saigon Specials" class="about-img-square">
-        
         <div class="about-text">
             Welcome to <b>Veggie Saigon</b> – where the essence of Vietnamese culinary heritage meets international fusion in a <b>Pure Vegan</b> experience. 🌿 <br><br>
             <b>1. Strict Standards for Body & Soul:</b><br>
@@ -88,7 +74,6 @@
             <b>3. Mindful Eating & Connection:</b><br>
             We invite you to eat in Awareness. Nourish your inner peace and connect with the love of all living beings. 🙏
         </div>
-        
         <div class="video-wrapper-short">
             <iframe src="https://www.youtube.com/embed/TaMBjgJhrNA" allowfullscreen></iframe>
         </div>
@@ -101,7 +86,13 @@
     </div>
 
     <div class="section-title">🏠 Location & Contact</div>
-    <div id="location-list" style="text-align:center; color:#555; line-height: 1.6; margin-bottom: 20px;"></div>
+    <div id="location-info" style="text-align:center; color:#555; line-height: 1.6; margin-bottom: 20px;">
+        <strong>Phở Bụt Vegan - Quán Chay Da Nang</strong><br>
+        📍 76 Thủ Khoa Huân, An Hải Đông, Sơn Trà, Đà Nẵng<br>
+        ⏰ Open: 10:00 – 22:00<br>
+        <a href="https://maps.google.com/?cid=10459521360155096148" target="_blank" style="display:inline-block; margin-top:8px; color:#2e7d32; text-decoration:none; font-weight:bold; background:#e8f5e9; padding:5px 12px; border-radius:15px; font-size:0.9em;">🌍 View on Google Maps ➔</a>
+    </div>
+
     <div class="contact-btns">
         <button class="btn-qr btn-qr-zalo" onclick="window.hienThiQR('zalo')">📱 Zalo QR</button>
         <button class="btn-qr btn-qr-wa" onclick="window.hienThiQR('wa')">💬 WhatsApp QR</button>
@@ -110,30 +101,19 @@
     <div class="section-title">🕯️ Nourish Your Soul</div>
     <div id="video-section">
         <div class="video-item">
-            <div class="video-wrapper-landscape">
-                <iframe src="https://www.youtube.com/embed/6F4cVu5aDkU" allowfullscreen></iframe>
-            </div>
+            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/6F4cVu5aDkU" allowfullscreen></iframe></div>
             <div class="video-info">Eightfold Path (Bát Chánh Đạo)</div>
         </div>
-        
         <div class="video-item">
-            <div class="video-wrapper-landscape">
-                <iframe src="https://www.youtube.com/embed/MVwM2lQ6DCg" allowfullscreen></iframe>
-            </div>
+            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/MVwM2lQ6DCg" allowfullscreen></iframe></div>
             <div class="video-info">Metta Sutta (Kinh Từ Bi)</div>
         </div>
-        
         <div class="video-item">
-            <div class="video-wrapper-landscape">
-                <iframe src="https://www.youtube.com/embed/DMVhQJUreAk" allowfullscreen></iframe>
-            </div>
+            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/DMVhQJUreAk" allowfullscreen></iframe></div>
             <div class="video-info">Decoding Birth and Death (Giải Mã Sinh Tử)</div>
         </div>
-        
         <div class="video-item">
-            <div class="video-wrapper-landscape">
-                <iframe src="https://www.youtube.com/embed/gwMV-DfcMHs" allowfullscreen></iframe>
-            </div>
+            <div class="video-wrapper-landscape"><iframe src="https://www.youtube.com/embed/gwMV-DfcMHs" allowfullscreen></iframe></div>
             <div class="video-info">10 Fetters (10 Sợi Dây Xích Kiết Sử)</div>
         </div>
     </div>
@@ -178,18 +158,12 @@
                 const m = doc.data(); const tenVi = String(m.ten_tieng_viet || 'Vegan Dish'); const tenEn = String(m.ten_tieng_anh || tenVi); const gia = Number(m.gia_tien) || 0; const hinh = m.hinh_anh || "https://via.placeholder.com/500x500?text=Veggie+Saigon";
                 menuDiv.innerHTML += `<div class="menu-card"><img src="${hinh}"><div class="card-content"><h3 class="name-en">${tenEn}</h3><p class="name-vi">${tenVi}</p><p class="price">${gia.toLocaleString()} VND</p><button class="btn-add" onclick="window.themVaoGio('${tenEn.replace(/'/g, "")}', ${gia}, event)">➕ Add to cart</button></div></div>`;
             });
-            const lSnap = await getDocs(collection(db, "Locations"));
-            const locDiv = document.getElementById('location-list');
-            lSnap.forEach(doc => {
-                const l = doc.data(); const mapLink = `https://maps.google.com/?q=$0{encodeURIComponent(l.dia_chi)}`;
-                locDiv.innerHTML += `<strong>${l.ten_quan}</strong><br>📍 ${l.dia_chi}<br><a href="${mapLink}" target="_blank" style="display:inline-block; margin-top:8px; color:#2e7d32; text-decoration:none; font-weight:bold; background:#e8f5e9; padding:5px 12px; border-radius:15px; font-size:0.9em;">🌍 View on Google Maps ➔</a>`;
-            });
         } catch(e) { console.error(e); }
     }
     window.themVaoGio = (ten, gia, event) => { if (window.gioHang[ten]) window.gioHang[ten].soLuong++; else window.gioHang[ten] = { gia: gia, soLuong: 1 }; let tongSoLuong = 0; tongTienGioHang = 0; for (let m in window.gioHang) { tongSoLuong += window.gioHang[m].soLuong; tongTienGioHang += (window.gioHang[m].soLuong * window.gioHang[m].gia); } document.getElementById('cart-count').innerText = tongSoLuong; document.getElementById('cart-total').innerText = tongTienGioHang.toLocaleString() + ' VND'; };
     window.moGioHang = () => { const listDiv = document.getElementById('cart-items-list'); listDiv.innerHTML = ""; for (let m in window.gioHang) { listDiv.innerHTML += `<div class="cart-item"><div><b>${m}</b><br>${window.gioHang[m].gia.toLocaleString()} x ${window.gioHang[m].soLuong}</div><div>${(window.gioHang[m].soLuong * window.gioHang[m].gia).toLocaleString()} VND</div></div>`; } document.getElementById('modal-total').innerText = tongTienGioHang.toLocaleString() + ' VND'; document.getElementById('cart-modal').style.display = "block"; };
     window.dongModal = (id) => document.getElementById(id).style.display = "none";
-    window.guiWhatsApp = () => { let text = "🙏 Hello Veggie Saigon, I would like to order:\n\n"; for (let m in window.gioHang) { text += `- ${m}: ${window.gioHang[m].soLuong}\n`; } text += `\n💰 Total: ${tongTienGioHang.toLocaleString()} VND\nThank you!`; window.location.href = `https://wa.me/84968107788?text=${encodeURIComponent(text)}`; };
+    window.guiWhatsApp = () => { let text = "🙏 Hello, I would like to order:\n\n"; for (let m in window.gioHang) { text += `- ${m}: ${window.gioHang[m].soLuong}\n`; } text += `\n💰 Total: ${tongTienGioHang.toLocaleString()} VND\nThank you!`; window.location.href = `https://wa.me/84968107788?text=${encodeURIComponent(text)}`; };
     window.hienThiQR = (type) => { const img = document.getElementById('qr-image'); const num = document.getElementById('qr-number'); if(type === 'zalo') { img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zalo.me/0968107788"; num.innerText = "+84 968 107 788 (Zalo)"; } else { img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84968107788"; num.innerText = "+84 968 107 788 (WhatsApp)"; } document.getElementById('qr-modal').style.display = "block"; };
     chayWeb();
 </script>
