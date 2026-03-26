@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Đơn Hàng & Lợi Nhuận</title>
+<style>
+    body { font-family: sans-serif; background: #f4f7f6; padding: 20px; }
+    .card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .rep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
+    .rep-box { background: #f9fbf9; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #ddd; }
+    .order-card { border-left: 5px solid #3498db; background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
+</style></head>
+<body>
+<div id="main" style="max-width:1000px; margin:auto;">
+    <div class="card">
+        <h2>📊 Báo Cáo Lợi Nhuận (Đơn Hoàn Thành)</h2>
+        <input type="date" id="dF"> đến <input type="date" id="dT"> <button onclick="window.calc()">Lọc báo cáo</button>
+        <div class="rep-grid">
+            <div class="rep-box"><h4>Doanh Thu</h4><p id="sR">0đ</p></div>
+            <div class="rep-box"><h4>Giá Vốn</h4><p id="sC">0đ</p></div>
+            <div class="rep-box"><h4>Thuế VAT</h4><p id="sV">0đ</p></div>
+            <div class="rep-box"><h4>Lợi Nhuận</h4><p id="sP" style="color:green; font-weight:bold;">0đ</p></div>
+        </div>
+    </div>
+    <div class="card"><h2>📦 Đơn Hàng Mới</h2><div id="oL">Đang tải...</div></div>
+    <div class="card"><h2>🍜 Kho Hàng</h2><table style="width:100%"><tbody id="sT"></tbody></table></div>
+</div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, updateDoc, doc, query, orderBy, writeBatch, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    // --- DÁN FIREBASE CONFIG ---
+    const firebaseConfig = { apiKey: "AIza...", authDomain: "...", projectId: "..." };
+    const app = initializeApp(firebaseConfig); const db = getFirestore(app);
+    let allO = [];
+    async function loadO() {
+        const s = await getDocs(query(collection(db, "Orders"), orderBy("thoi_gian", "desc")));
+        const div = document.getElementById('oL'); div.innerHTML = "";
+        s.forEach(d => {
+            const o = {id: d.id, ...d.data()}; allO.push(o);
+            let itm = ""; for(let k in o.chi_tiet) itm += `${k} x ${o.chi_tiet[k].sl}, `;
+            div.innerHTML += `<div class="order-card">
+                <b>Khách: ${o.khach_hang} [${o.trang_thai}]</b><br>📞 ${o.dien_thoai} | 📍 ${o.dia_chi}<br>🛒 ${itm}<br>💰 <b>Tổng: ${o.tong_tien.toLocaleString()}đ</b><br>
+                <button onclick="window.upS('${o.id}', 'Đã hoàn thành')">✅ Hoàn thành & Trừ kho</button>
+                <button onclick="window.upS('${o.id}', 'Hủy')" style="color:red">Hủy</button>
+            </div>`;
+        });
+        window.calc();
+    }
+    window.upS = async (id, s) => {
+        const o = allO.find(x => x.id === id);
+        if(s === 'Đã hoàn thành') {
+            const b = writeBatch(db);
+            for(let t in o.chi_tiet) {
+                const q = query(collection(db, "Menus"), where("ten_tieng_viet", "==", t));
+                const mS = await getDocs(q);
+                mS.forEach(m => b.update(doc(db, "Menus", m.id), {ton_kho: (m.data().ton_kho||0) - o.chi_tiet[t].sl}));
+            }
+            await b.commit();
+        }
+        await updateDoc(doc(db, "Orders", id), {trang_thai: s}); location.reload();
+    };
+    window.calc = () => {
+        let r=0, c=0, v=0;
+        const f = document.getElementById('dF').value ? new Date(document.getElementById('dF').value).getTime() : 0;
+        const t = document.getElementById('dT').value ? new Date(document.getElementById('dT').value).setHours(23,59,59) : Infinity;
+        allO.filter(o => o.trang_thai === 'Đã hoàn thành' && o.thoi_gian).forEach(o => {
+            const tm = o.thoi_gian.toMillis();
+            if(tm >= f && tm <= t) { r += o.gia_tam_tinh; c += o.tong_von; v += o.tien_thue; }
+        });
+        document.getElementById('sR').innerText = r.toLocaleString() + 'đ';
+        document.getElementById('sC').innerText = c.toLocaleString() + 'đ';
+        document.getElementById('sV').innerText = v.toLocaleString() + 'đ';
+        document.getElementById('sP').innerText = (r - c).toLocaleString() + 'đ';
+    };
+    async function loadS() {
+        const s = await getDocs(collection(db, "Menus"));
+        s.forEach(d => { const m = d.data(); document.getElementById('sT').innerHTML += `<tr><td>${m.ten_tieng_viet}</td><td>Tồn: <input id="sk-${d.id}" value="${m.ton_kho}" style="width:50px"></td><td><button onclick="window.upK('${d.id}')">Lưu</button></td></tr>`; });
+    }
+    window.upK = async id => { await updateDoc(doc(db, "Menus", id), {ton_kho: Number(document.getElementById('sk-'+id).value)}); alert("Xong!"); };
+    loadO(); loadS();
+</script></body></html>
